@@ -29,7 +29,7 @@ def CreatePointCloud(RGB_PATH, DEPTH_PATH):
     depth_npy= np.load(DEPTH_PATH) # Reads Depth data
     depth_raw  = o3d.geometry.Image(depth_npy) # Converts depth data into image format
     print(color_raw)
-    rgbd_image = o3d.geometry.RGBDImage.create_from_color_and_depth(color_raw, depth_raw) # Creates RGBD image using TUM format
+    rgbd_image = o3d.geometry.RGBDImage.create_from_tum_format(color_raw, depth_raw) # Creates RGBD image using TUM format
     PointCloud = o3d.geometry.PointCloud.create_from_rgbd_image(
       rgbd_image,o3d.camera.PinholeCameraIntrinsic(o3d.camera.PinholeCameraIntrinsicParameters.PrimeSenseDefault)) # Creates Point Cloud from rgbd image
     PointCloud.transform([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0], [0, 0, 0, 1]]) # Flip it, otherwise the pointcloud will be upside down
