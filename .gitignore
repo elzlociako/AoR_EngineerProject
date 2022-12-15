@@ -1,0 +1,6 @@
+files/**/*.png
+files/**/*.npy
+files_ArUco/**/*.png
+files_ArUco/**/*.npy
+test_Files/**/*.npy
+test_Files/**/*.png

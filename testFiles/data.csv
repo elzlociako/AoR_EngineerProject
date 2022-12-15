@@ -1,0 +1,8 @@
+object_name,rgb_img_I,rgb_img_II,depth_img_I,depth_img_II,camera_info,x1,y1,z1,x2,y2,z2
+done,testFiles/images/rgb_img_I/RGB00000.png,testFiles/images/rgb_img_II/RGB00000.png,testFiles/images/depth_img_I/D00000.npy,testFiles/images/depth_img_II/D00000.npy,testFiles/cam_info/INFO00000.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00001.png,testFiles/images/rgb_img_II/RGB00001.png,testFiles/images/depth_img_I/D00001.npy,testFiles/images/depth_img_II/D00001.npy,testFiles/cam_info/INFO00001.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00002.png,testFiles/images/rgb_img_II/RGB00002.png,testFiles/images/depth_img_I/D00002.npy,testFiles/images/depth_img_II/D00002.npy,testFiles/cam_info/INFO00002.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00003.png,testFiles/images/rgb_img_II/RGB00003.png,testFiles/images/depth_img_I/D00003.npy,testFiles/images/depth_img_II/D00003.npy,testFiles/cam_info/INFO00003.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00004.png,testFiles/images/rgb_img_II/RGB00004.png,testFiles/images/depth_img_I/D00004.npy,testFiles/images/depth_img_II/D00004.npy,testFiles/cam_info/INFO00004.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00005.png,testFiles/images/rgb_img_II/RGB00005.png,testFiles/images/depth_img_I/D00005.npy,testFiles/images/depth_img_II/D00005.npy,testFiles/cam_info/INFO00005.npy,0,0,0,0,0,0
+Done,testFiles/images/rgb_img_I/RGB00006.png,testFiles/images/rgb_img_II/RGB00006.png,testFiles/images/depth_img_I/D00006.npy,testFiles/images/depth_img_II/D00006.npy,testFiles/cam_info/INFO00006.npy,0,0,0,0,0,0
