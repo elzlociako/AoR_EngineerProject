@@ -74,9 +74,9 @@ class image_converter:
 
       
   def callbackINFO_RGB(self, data):
-    global imgI_RGB
+    global info_RGB
     try:
-      imgI_RGB = data
+      info_RGB = data.K # Check it
     except CvBridgeError as e:
       print(e)
       
@@ -117,7 +117,7 @@ def CollectData():
   df = pd.DataFrame(
     [
       [
-        object_name,
+        counter,
         'files/images/rgb_img_I/RGB%05d.png'%counter, 
         'files/images/rgb_img_II/RGB%05d.png'%counter, 
         'files/images/depth_img_I/D%05d.npy'%counter,
@@ -129,11 +129,20 @@ def CollectData():
         np.asarray(axis_points[1][0]),
         np.asarray(axis_points[1][1]),
         np.asarray(axis_points[1][2]),
+        info_RGB[0],
+        info_RGB[1],
+        info_RGB[2],
+        info_RGB[3],
+        info_RGB[4],
+        info_RGB[5],
+        info_RGB[6],
+        info_RGB[7],
+        info_RGB[8],
       ]
     ],
     columns=
     [
-      "object_name", "rgb_img_I", "rgb_img_II", "depth_img_I", "depth_img_II", "camera_info", "x1", "y1", "z1", "x2", "y2", "z2"
+      "nr", "rgb_img_I", "rgb_img_II", "depth_img_I", "depth_img_II","x1", "y1", "z1", "x2", "y2", "z2","K0","K1","K2","K3","K4","K5","K6","K7","K8"
     ]
   )
  
