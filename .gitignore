@@ -1,6 +1,0 @@
-files/**/*.png
-files/**/*.npy
-files_ArUco/**/*.png
-files_ArUco/**/*.npy
-testFiles/**/*.npy
-testFiles/**/*.png
