@@ -1,0 +1,2 @@
+  sudo tree -P '*0000[0-3].npy' -P '*0000[0-3].png' -I 'Libraries' -I 'testFiles' -P 'data.csv'
+
