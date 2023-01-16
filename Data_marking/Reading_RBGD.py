@@ -65,7 +65,7 @@ Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv')
 # For scaled use
 
 scale_var = 10
-for row in range(16,100):
+for row in range(284,Rude_CSV.shape[0]):
     PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
     x1 = Rude_CSV.loc[row, 'x1']/scale_var
     y1 = Rude_CSV.loc[row, 'y1']/scale_var
@@ -73,7 +73,6 @@ for row in range(16,100):
     x2 = Rude_CSV.loc[row, 'x2']/scale_var
     y2 = Rude_CSV.loc[row, 'y2']/scale_var
     z2 = Rude_CSV.loc[row, 'z2']/scale_var
-
     print(f'Image Nr: {row}')
 
     REAL = [[x1,y1,z1],[x2,y2,z2]]
