@@ -45,37 +45,46 @@ def draw_arrow(pcd, points_real, points_extimated):
     line_set.colors=o3d.utility.Vector3dVector(colors)
     o3d.visualization.draw_geometries([pcd,line_set])
     
-Rude_CSV = pd.read_csv('files/data.csv')
+ROOT_DIR = '/home/el_zlociako/Documents/Praca_inzynierska/Dataset/'
+Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv')
 
-row = int(sys.argv[1])
-# row = 105
-PC = CreatePointCloud(Rude_CSV.loc[row,'rgb_img_II'], Rude_CSV.loc[row,'depth_img_II'])
-PC1 = CreatePointCloud(Rude_CSV.loc[1,'rgb_img_II'], Rude_CSV.loc[1,'depth_img_II'])
-PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/AoR_CNN/Segmentacja/files/axis/AX{str(row).zfill(5)}.npy')
-x1 = Rude_CSV.loc[row, 'x1']
-y1 = Rude_CSV.loc[row, 'y1']
-z1 = Rude_CSV.loc[row, 'z1'] 
-x2 = Rude_CSV.loc[row, 'x2']
-y2 = Rude_CSV.loc[row, 'y2']
-z2 = Rude_CSV.loc[row, 'z2']
+# row = int(sys.argv[1])
+# row = 1
+
+# PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
+# PC1 = CreatePointCloud(Rude_CSV.loc[1,'rgb_img_II'], Rude_CSV.loc[1,'depth_img_II'])
+# PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/AoR_CNN/Segmentacja/files/axis/AX{str(row).zfill(5)}.npy')
+
+# x1 = Rude_CSV.loc[row, 'x1']
+# y1 = Rude_CSV.loc[row, 'y1']
+# z1 = Rude_CSV.loc[row, 'z1'] 
+# x2 = Rude_CSV.loc[row, 'x2']
+# y2 = Rude_CSV.loc[row, 'y2']
+# z2 = Rude_CSV.loc[row, 'z2']
 
 # For scaled use
-scale_var = 10
-x1 = Rude_CSV.loc[row, 'x1']/scale_var
-y1 = Rude_CSV.loc[row, 'y1']/scale_var
-z1 = Rude_CSV.loc[row, 'z1']/scale_var
-x2 = Rude_CSV.loc[row, 'x2']/scale_var
-y2 = Rude_CSV.loc[row, 'y2']/scale_var
-z2 = Rude_CSV.loc[row, 'z2']/scale_var
 
-REAL = [[x1,y1,z1],[x2,y2,z2]]
-ESTIMATED = [[x1,y1,z1],[x2,y2,z2]]
-# ESTIMATED = [[     0.07255,      0.33570,     -1.08489], [     0.06919,     -0.20737,     -1.23719]]
-# draw_arrow(PC, REAL, ESTIMATED)
+scale_var = 10
+for row in range(16,100):
+    PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
+    x1 = Rude_CSV.loc[row, 'x1']/scale_var
+    y1 = Rude_CSV.loc[row, 'y1']/scale_var
+    z1 = Rude_CSV.loc[row, 'z1']/scale_var
+    x2 = Rude_CSV.loc[row, 'x2']/scale_var
+    y2 = Rude_CSV.loc[row, 'y2']/scale_var
+    z2 = Rude_CSV.loc[row, 'z2']/scale_var
+
+    print(f'Image Nr: {row}')
+
+    REAL = [[x1,y1,z1],[x2,y2,z2]]
+    ESTIMATED = [[x1,y1,z1],[x2,y2,z2]]
+    draw_arrow(PC, REAL, ESTIMATED)
+
+
 # vis = o3d.visualization.VisualizerWithEditing()
 # vis.create_window()
 # vis.add_geometry(PCA)
 # vis.add_geometry(PCA) # Flip it, otherwise the pointcloud will be upside down
 # vis.run()
 # vis.destroy_window()
-o3d.visualization.draw_geometries([PCA,PC])
+# o3d.visualization.draw_geometries([PCA,PC])

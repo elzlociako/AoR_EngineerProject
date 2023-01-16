@@ -4,9 +4,14 @@ import pandas as pd
 import numpy as np
 import sys
 
-PATH = str(sys.argv[1])
-FIRST_SECELTED_IMAGE = int(sys.argv[2])
-LAST_SELECTED_IMAGE = int(sys.argv[3])
+# PATH = str(sys.argv[1])
+# FIRST_SECELTED_IMAGE = int(sys.argv[2])
+# LAST_SELECTED_IMAGE = int(sys.argv[3])
+
+ROOT_DIR = '/home/el_zlociako/Documents/Praca_inzynierska/Dataset/'
+PATH = f'{ROOT_DIR}files_ArUco/data_ArUco.csv'
+FIRST_SECELTED_IMAGE = 6
+LAST_SELECTED_IMAGE = 6
 
 
 # Functions
@@ -44,11 +49,11 @@ points_1 = [0,0,0]
 points_2 = [0,0,0]
 two_points = False
 
-PC = CreatePointCloud(Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'rgb_img_I'], Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'depth_img_I'])
+PC = CreatePointCloud(ROOT_DIR+Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'rgb_img_I'], ROOT_DIR+Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'depth_img_I'])
 while two_points == False:
   points_1, two_points = PickPoints(PC)
 two_points = False
-PC = CreatePointCloud(Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'rgb_img_II'], Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'depth_img_II'])
+PC = CreatePointCloud(ROOT_DIR+Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'rgb_img_II'], ROOT_DIR+Perfect_datafile.loc[FIRST_SECELTED_IMAGE,'depth_img_II'])
 while two_points == False:
   points_2, two_points = PickPoints(PC)
 
@@ -76,4 +81,4 @@ for row in range(FIRST_SECELTED_IMAGE,LAST_SELECTED_IMAGE+1):
 
     print(f'-----> DATA SAVED <-----')
 
-Perfect_datafile.to_csv("files/data.csv", index=False)
+Perfect_datafile.to_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv', index=False)
