@@ -65,8 +65,11 @@ Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv')
 # For scaled use
 
 scale_var = 10
-for row in range(284,Rude_CSV.shape[0]):
+for row in range(0,Rude_CSV.shape[0]):
     PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
+    # PC1 = CreatePointCloud(Rude_CSV.loc[1,'rgb_img_II'], Rude_CSV.loc[1,'depth_img_II'])
+    PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(row).zfill(5)}.npy')
+
     x1 = Rude_CSV.loc[row, 'x1']/scale_var
     y1 = Rude_CSV.loc[row, 'y1']/scale_var
     z1 = Rude_CSV.loc[row, 'z1']/scale_var
@@ -77,7 +80,8 @@ for row in range(284,Rude_CSV.shape[0]):
 
     REAL = [[x1,y1,z1],[x2,y2,z2]]
     ESTIMATED = [[x1,y1,z1],[x2,y2,z2]]
-    draw_arrow(PC, REAL, ESTIMATED)
+    # draw_arrow(PC, REAL, ESTIMATED)
+    o3d.visualization.draw_geometries([PCA,PC])
 
 
 # vis = o3d.visualization.VisualizerWithEditing()

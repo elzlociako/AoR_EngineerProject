@@ -139,7 +139,7 @@ def change_path(path: str,
 
 
 def convert_csv(dir, core, lock, visualise=False, reconvert=False):
-    dir = ['/home/el_zlociako/Documents/AoR_CNN/Segmentacja/files/data.csv']
+    dir = ['/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/data_ArUco.csv']
     for csv_file in dir:
         DIVIDER = 1
         if csv_file.find('validation') != -1:
@@ -183,8 +183,8 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
 
             switch_to_Y = abs(pt2[0]-pt1[0]) < abs(pt2[1]-pt1[1])
 
-            min_ran = None
-            max_ran = None
+            min_ran = data['y1'][i]
+            max_ran = data['y2'][i]
 
             if not switch_to_Y:
                 x_i = 0.0000001
@@ -264,7 +264,7 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
             points_on_line = np.linspace(a_px[0], a_px[-1], int(linspace))
             for pt in points_on_line:
                 tmp_img = np.zeros(IMG_SIZE, float)
-                depth_img = np.load(data['depth_img_II'].iloc[i])
+                # depth_img = np.load(data['depth_img_II'].iloc[i])
                 # depth_img = cv.imread(data['depth_img_I'].iloc[i], cv.IMREAD_UNCHANGED)
                 cv.circle(tmp_img, (int(pt[0]), int(pt[1])), radius=1, color=pt[2], thickness=-1)
                 # if np.sum(tmp_img*depth_img):
@@ -274,7 +274,7 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
             # plt.imshow(img)
             # plt.show()
 
-            np.save(f'/home/el_zlociako/Documents/AoR_CNN/Segmentacja/files/axis/AX{str(i).zfill(5)}', img)
+            np.save(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(i).zfill(5)}', img)
             # np.save(out_path_ax, img)
 
             # with lock:
