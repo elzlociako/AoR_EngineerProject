@@ -266,7 +266,7 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
                 tmp_img = np.zeros(IMG_SIZE, float)
                 # depth_img = np.load(data['depth_img_II'].iloc[i])
                 # depth_img = cv.imread(data['depth_img_I'].iloc[i], cv.IMREAD_UNCHANGED)
-                cv.circle(tmp_img, (int(pt[0]), int(pt[1])), radius=1, color=pt[2], thickness=-1)
+                cv.circle(tmp_img, (int(pt[0]), int(pt[1])), radius=5, color=pt[2], thickness=-1)
                 # if np.sum(tmp_img*depth_img):
                 img[np.where(tmp_img!=0)] = tmp_img[np.where(tmp_img!=0)]
                     # img = tmp_img

@@ -48,7 +48,7 @@ class DataLoader:
                 np.array(images_dataset.append(img))
         return np.array(images_dataset)
 
-    def load(self, DATASET_ROOTDIR, csv_path, RorS):
+    def load(self, DATASET_ROOTDIR, csv_path, depth_dir, RorS):
         df = pd.read_csv(f'{DATASET_ROOTDIR}{csv_path}') 
         df_INPUT_DEPTH = df[['depth_img_I', 'depth_img_II']]
         df_INPUT_RGB = df[['rgb_img_I', 'rgb_img_II']]
@@ -57,7 +57,7 @@ class DataLoader:
         RGBimg_begin = self.__load_from_csv(DATASET_ROOTDIR, df_INPUT_RGB, 'rgb' ,0)
         DEPTHimg_begin = self.__load_from_csv(DATASET_ROOTDIR, df_INPUT_DEPTH, 'depth',0)
         DEPTHimg_end = self.__load_from_csv(DATASET_ROOTDIR, df_INPUT_DEPTH, 'depth', 1)
-        DEPTH_axis = self.__load_axis_depth(f'{DATASET_ROOTDIR}files/axis')
+        DEPTH_axis = self.__load_axis_depth(f'{DATASET_ROOTDIR}{depth_dir}')
 
         # Taking first rgb image
         rgb_in = torch.IntTensor(RGBimg_begin.transpose(0,3,1,2))
