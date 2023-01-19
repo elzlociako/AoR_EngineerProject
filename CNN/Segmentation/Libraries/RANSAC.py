@@ -5,7 +5,7 @@ rng = default_rng()
 
 
 class RANSAC:
-    def __init__(self, n=10, k=200, t=0.001, d=150, model=None, loss=None, metric=None):
+    def __init__(self, n=10, k=250, t=0.001, d=150, model=None, loss=None, metric=None):
         self.n = n              # `n`: Minimum number of data points to estimate parameters
         self.k = k              # `k`: Maximum iterations allowed
         self.t = t              # `t`: Threshold value to determine if points are fit well

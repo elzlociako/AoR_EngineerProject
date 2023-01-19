@@ -2,7 +2,7 @@ import open3d as o3d
 import numpy as np
 import pandas as pd
 import sys
-
+import matplotlib.pyplot as plt
 
 def CreatePointCloud(RGB_PATH, DEPTH_PATH):
     color_raw = o3d.io.read_image(RGB_PATH) # Reads RGB image
@@ -46,7 +46,7 @@ def draw_arrow(pcd, points_real, points_extimated):
     o3d.visualization.draw_geometries([pcd,line_set])
     
 ROOT_DIR = '/home/el_zlociako/Documents/Praca_inzynierska/Dataset/'
-Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv')
+Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco2.csv')
 
 # row = int(sys.argv[1])
 # row = 1
@@ -65,10 +65,10 @@ Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv')
 # For scaled use
 
 scale_var = 10
-for row in range(0,Rude_CSV.shape[0]):
+for row in range(0,380):  
     PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
     # PC1 = CreatePointCloud(Rude_CSV.loc[1,'rgb_img_II'], Rude_CSV.loc[1,'depth_img_II'])
-    PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(row).zfill(5)}.npy')
+    # PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(row).zfill(5)}.npy')
 
     x1 = Rude_CSV.loc[row, 'x1']/scale_var
     y1 = Rude_CSV.loc[row, 'y1']/scale_var
@@ -80,8 +80,8 @@ for row in range(0,Rude_CSV.shape[0]):
 
     REAL = [[x1,y1,z1],[x2,y2,z2]]
     ESTIMATED = [[x1,y1,z1],[x2,y2,z2]]
-    # draw_arrow(PC, REAL, ESTIMATED)
-    o3d.visualization.draw_geometries([PCA,PC])
+    draw_arrow(PC, REAL, ESTIMATED)
+    # o3d.visualization.draw_geometries([PCA,PC])
 
 
 # vis = o3d.visualization.VisualizerWithEditing()

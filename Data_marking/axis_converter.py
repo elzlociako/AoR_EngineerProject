@@ -139,7 +139,7 @@ def change_path(path: str,
 
 
 def convert_csv(dir, core, lock, visualise=False, reconvert=False):
-    dir = ['/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/data_ArUco.csv']
+    dir = ['/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_Test/data_Test.csv']
     for csv_file in dir:
         DIVIDER = 1
         if csv_file.find('validation') != -1:
@@ -274,7 +274,7 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
             # plt.imshow(img)
             # plt.show()
 
-            np.save(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(i).zfill(5)}', img)
+            np.save(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_Test/axis/AX{str(i).zfill(5)}', img)
             # np.save(out_path_ax, img)
 
             # with lock:

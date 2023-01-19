@@ -9,7 +9,7 @@ FIRST_SECELTED_IMAGE = int(sys.argv[1])
 LAST_SELECTED_IMAGE = int(sys.argv[2])
 
 ROOT_DIR = '/home/el_zlociako/Documents/Praca_inzynierska/Dataset/'
-PATH = f'{ROOT_DIR}files_ArUco/data_ArUco.csv'
+PATH = f'{ROOT_DIR}files_Test/data_Test.csv'
 # FIRST_SECELTED_IMAGE = 6
 # LAST_SELECTED_IMAGE = 6
 
@@ -81,4 +81,4 @@ for row in range(FIRST_SECELTED_IMAGE,LAST_SELECTED_IMAGE+1):
 
     print(f'-----> DATA SAVED <-----')
 
-Perfect_datafile.to_csv(f'{ROOT_DIR}files_ArUco/data_ArUco.csv', index=False)
+Perfect_datafile.to_csv(f'{ROOT_DIR}files_Test/data_Test.csv', index=False)
