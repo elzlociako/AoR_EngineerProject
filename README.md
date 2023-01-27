@@ -32,27 +32,26 @@ sudo nano /opt/ros/noetic/share/aruco_ros/launch/single.launch
 
 single.launch file:
 ```
-<<<<<<< HEAD
-    <launch>
-        <arg name="markerId"        default="500"/>
-        <arg name="markerSize"      default="0.1"/>    <!-- in m -->
-        <arg name="eye"             default="left"/>
-        <arg name="marker_frame"    default="aruco_marker_frame"/>
-        <arg name="ref_frame"       default=""/>  <!-- leave empty and the pose will be published wrt param parent_name -->
-        <arg name="corner_refinement" default="LINES" /> <!-- NONE, HARRIS, LINES, SUBPIX -->
+  GNU nano 4.8  /opt/ros/noetic/share/aruco_ros/launch/single.launch            
+<launch>
+   <arg name="markerId"        default="500"/>
+   <arg name="markerSize"      default="0.1"/>    <!-- in m -->
+   <arg name="eye"             default="left"/>
+   <arg name="marker_frame"    default="aruco_marker_frame"/>
+   <arg name="ref_frame"       default=""/>  <!-- leave empty and the pose will>
+   <arg name="corner_refinement" default="LINES" /> <!-- NONE, HARRIS, LINES, S>
+   <node pkg="aruco_ros" type="single" name="aruco_single">
+   <remap from="/camera_info" to="/camera/color/camera_info" />
+   <remap from="/image" to="/camera/color/image_raw" />
+   <param name="image_is_rectified" value="True"/>
+   <param name="marker_size"        value="$(arg markerSize)"/>
+   <param name="marker_id"          value="$(arg markerId)"/>
+   <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in >
+   <param name="camera_frame"       value="stereo_gazebo_$(arg eye)_camera_opti>
+   <param name="marker_frame"       value="$(arg marker_frame)" />
+   <param name="corner_refinement"  value="$(arg corner_refinement)" />
+   </node>
+</launch>
 
-        <node pkg="aruco_ros" type="single" name="aruco_single">
-            <remap from="/camera_info" to="/camera/color/camera_info" />
-            <remap from="/image" to="/camera/color/image_raw" />
-            <param name="image_is_rectified" value="True"/>
-            <param name="marker_size"        value="$(arg markerSize)"/>
-            <param name="marker_id"          value="$(arg markerId)"/>
-            <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
-            <param name="camera_frame"       value="stereo_gazebo_$(arg eye)_camera_optical_frame"/>
-            <param name="marker_frame"       value="$(arg marker_frame)" />
-            <param name="corner_refinement"  value="$(arg corner_refinement)" />
-        </node>
-    </launch>
-=======
 ```
 ### Collecting Data
