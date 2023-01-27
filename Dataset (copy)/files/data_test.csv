@@ -1,2 +1,0 @@
-nr,rgb_img_I,rgb_img_II,depth_img_I,depth_img_II,x1,y1,z1,x2,y2,z2,K0,K1,K2,K3,K4,K5,K6,K7,K8
-122,files/images/rgb_img_I/RGB00122.png,files/images/rgb_img_II/RGB00122.png,files/images/depth_img_I/D00122.npy,files/images/depth_img_II/D00122.npy,0.0998533342211019,-0.3365771458617278,1.178000010550022,0.1055357151797839,0.1800071444539797,1.303500011563301,570,0,320,0,570,240,0,0,1
