@@ -131,13 +131,6 @@ def split_for_threads(dirs, cores=4):
     return out
 
 
-def change_path(path: str,
-                f='/media/kamil/HDD21',
-                t='/mnt/9277-709F'):
-
-    return path.replace(f, t)
-
-
 def convert_csv(dir, core, lock, visualise=False, reconvert=False):
     dir = ['/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_Test/data_Test.csv']
     for csv_file in dir:
@@ -284,7 +277,6 @@ def convert_csv(dir, core, lock, visualise=False, reconvert=False):
         print("FINISHED "+ csv_file)
 
 #   PARAMS
-# parent_dir = '/mnt/9277-709F/RBO Dataset/final_dataset'
 cores = 1
 RECONVERT = True
 
