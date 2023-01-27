@@ -31,8 +31,7 @@ sudo nano /opt/ros/noetic/share/aruco_ros/launch/single.launch
 `
 
 single.launch file:
-```
-  GNU nano 4.8  /opt/ros/noetic/share/aruco_ros/launch/single.launch            
+```      
 <launch>
    <arg name="markerId"        default="500"/>
    <arg name="markerSize"      default="0.1"/>    <!-- in m -->
@@ -52,6 +51,5 @@ single.launch file:
    <param name="corner_refinement"  value="$(arg corner_refinement)" />
    </node>
 </launch>
-
 ```
 ### Collecting Data
