@@ -31,7 +31,7 @@ sudo nano /opt/ros/noetic/share/aruco_ros/launch/single.launch
 `
 
 single.launch file:
-
+```
 <<<<<<< HEAD
     <launch>
         <arg name="markerId"        default="500"/>
