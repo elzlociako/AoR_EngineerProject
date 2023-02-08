@@ -46,7 +46,7 @@ def draw_arrow(pcd, points_real, points_extimated):
     o3d.visualization.draw_geometries([pcd,line_set])
     
 ROOT_DIR = '/home/el_zlociako/Documents/Praca_inzynierska/Dataset/'
-Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco2.csv')
+Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_Test/data_Test.csv')
 
 # row = int(sys.argv[1])
 # row = 1
@@ -65,7 +65,7 @@ Rude_CSV = pd.read_csv(f'{ROOT_DIR}files_ArUco/data_ArUco2.csv')
 # For scaled use
 
 scale_var = 10
-for row in range(0,380):  
+for row in range(6,9):  
     PC = CreatePointCloud(ROOT_DIR+Rude_CSV.loc[row,'rgb_img_II'], ROOT_DIR+Rude_CSV.loc[row,'depth_img_II'])
     # PC1 = CreatePointCloud(Rude_CSV.loc[1,'rgb_img_II'], Rude_CSV.loc[1,'depth_img_II'])
     # PCA = CreateAxisCloud(f'/home/el_zlociako/Documents/Praca_inzynierska/Dataset/files_ArUco/axis/AX{str(row).zfill(5)}.npy')
